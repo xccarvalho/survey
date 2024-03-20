@@ -1,3 +1,4 @@
+import { Button } from "@/components/button";
 import { Header } from "@/components/header";
 import Surveys from "@/components/surveys";
 import { View } from "react-native";
@@ -5,6 +6,7 @@ import { View } from "react-native";
 export default function Home() {
   return (
     <View className="flex-1 p-8 bg-green-200">
+      <Button title="Login" />
       <Header title="Active Surveys" subtitle="Your opinion is important!" />
       <Surveys />
     </View>
