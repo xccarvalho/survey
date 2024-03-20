@@ -12,7 +12,7 @@ type Props = TouchableOpacityProps & {
 export function Survey({ survey, ...rest }: Props) {
   return (
     <TouchableOpacity
-      className="h-24 bg-green-50 shadow-xl rounded-lg p-4"
+      className="h-24 p-4 bg-green-50 shadow-md rounded-lg border-none"
       activeOpacity={0.7}
       {...rest}
     >

@@ -10,22 +10,23 @@ type Props = {
   surveys?: SurveysProps;
 };
 
-export default function Surveys({ surveys }: Props) {
+export default function Surveys({ surveys, ...rest }: Props) {
   return (
     <ScrollView
-      showsVerticalScrollIndicator={false}
+      showsVerticalScrollIndicator={true}
       contentContainerClassName="gap-4"
-      className="w-full"
+      className="w-11/12 max-h-[37.5rem] mx-auto"
     >
       {/* {surveys.map(({ id, title }) => (
         <Survey key={id} survey={{ title }} />
       ))} */}
 
-      {Array.from({ length: 13 }).map((_survey, index) => (
+      {Array.from({ length: 45 }).map((_survey, index) => (
         <Survey
+          {...rest}
           key={index}
           survey={{
-            title: "Survey Title",
+            title: `${index + 1}  - Survey Title`,
             description:
               "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
           }}
