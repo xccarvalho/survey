@@ -1,5 +1,5 @@
 import { ScrollView } from "react-native";
-import { Survey } from "./Survey";
+import { SurveyCard } from "./SurveyCard";
 
 export type SurveyListProps = {
   id: string;
@@ -10,19 +10,19 @@ type Props = {
   SurveyList?: SurveyListProps;
 };
 
-export function SurveyList({ SurveyList, ...rest }: Props) {
+export function SurveysList({ SurveyList, ...rest }: Props) {
   return (
     <ScrollView
       showsVerticalScrollIndicator={true}
       contentContainerClassName="gap-4"
-      className="w-11/12 max-h-[37.5rem] mx-auto"
+      className="mx-auto max-h-[37.5rem] w-11/12"
     >
       {/* {SurveyList.map(({ id, title }) => (
         <Survey key={id} survey={{ title }} />
       ))} */}
 
       {Array.from({ length: 45 }).map((_survey, index) => (
-        <Survey
+        <SurveyCard
           {...rest}
           key={index}
           survey={{

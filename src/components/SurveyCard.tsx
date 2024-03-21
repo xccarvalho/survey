@@ -9,17 +9,17 @@ type Props = TouchableOpacityProps & {
   survey: SurveyProps;
 };
 
-export function Survey({ survey, ...rest }: Props) {
+export function SurveyCard({ survey, ...rest }: Props) {
   return (
     <TouchableOpacity
-      className="h-24 p-4 bg-green-50 shadow-md rounded-lg border-none"
+      className="h-24 rounded-lg border-none bg-green-50 p-4 shadow-md"
       activeOpacity={0.7}
       {...rest}
     >
-      <Text className="text-green-950 font-bold text-lg mb-1">
+      <Text className="mb-1 font-bold text-lg text-green-950">
         {survey.title}
       </Text>
-      <Text className="text-gray-700 font-regular text-sm truncate">
+      <Text className="truncate font-regular text-sm text-gray-700">
         {survey.description}
       </Text>
     </TouchableOpacity>
