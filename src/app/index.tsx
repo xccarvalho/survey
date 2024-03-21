@@ -1,6 +1,6 @@
-import { Button } from "@/components/button";
-import { Header } from "@/components/header";
-import Surveys from "@/components/surveys";
+import { SurveyList } from "@/components/SurveyList";
+import { Button } from "@/components/Button";
+import { Header } from "@/components/Header";
 import { router } from "expo-router";
 import { View } from "react-native";
 
@@ -14,7 +14,7 @@ export default function Home() {
       <Header variant="header" title="Survey" handlePress={goLoginPage} />
       <View className="px-6">
         <Header title="Active Surveys" subtitle="Your opinion is important!" />
-        <Surveys />
+        <SurveyList />
         <View className="flex items-center mt-12">
           <Button
             lgButton

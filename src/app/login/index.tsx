@@ -1,7 +1,7 @@
 import { SafeAreaView, TextInput, View, Text } from "react-native";
-import { Header } from "@/components/header";
 import { router } from "expo-router";
-import { Button } from "@/components/button";
+import { Header } from "@/components/Header";
+import { Button } from "@/components/Button";
 
 export default function Login() {
   function handleBack() {

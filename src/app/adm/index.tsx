@@ -1,7 +1,9 @@
-import { Button } from "@/components/button";
-import { Header } from "@/components/header";
 import { router } from "expo-router";
-import { Text, View } from "react-native";
+import { ScrollView, View } from "react-native";
+import { Button } from "@/components/Button";
+import { Header } from "@/components/Header";
+import CollapsibleView from "@/components/CollapsibleView";
+import { SurveyList } from "@/components/SurveyList";
 
 export default function Adm() {
   function handleBack() {
@@ -15,12 +17,18 @@ export default function Adm() {
         <Button backButton title="Back" onPress={handleBack} />
         <Button title="Create Survey" />
       </View>
-      <View className="px-6">
-        {/* <CollapsibleView title="Active Surveys"> */}
-        <Text>It's opened</Text>
-        {/* <Surveys /> */}
-        {/* </CollapsibleView> */}
-      </View>
+      <ScrollView
+        showsVerticalScrollIndicator={true}
+        contentContainerClassName="gap-4"
+        className="px-6"
+      >
+        <CollapsibleView title="Active Surveys">
+          <SurveyList />
+        </CollapsibleView>
+        <CollapsibleView title="Closed Surveys">
+          <SurveyList />
+        </CollapsibleView>
+      </ScrollView>
     </View>
   );
 }

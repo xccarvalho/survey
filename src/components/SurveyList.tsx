@@ -1,23 +1,23 @@
 import { ScrollView } from "react-native";
-import { Survey } from "../survey";
+import { Survey } from "./Survey";
 
-export type SurveysProps = {
+export type SurveyListProps = {
   id: string;
   title: string;
 }[];
 
 type Props = {
-  surveys?: SurveysProps;
+  SurveyList?: SurveyListProps;
 };
 
-export default function Surveys({ surveys, ...rest }: Props) {
+export function SurveyList({ SurveyList, ...rest }: Props) {
   return (
     <ScrollView
       showsVerticalScrollIndicator={true}
       contentContainerClassName="gap-4"
       className="w-11/12 max-h-[37.5rem] mx-auto"
     >
-      {/* {surveys.map(({ id, title }) => (
+      {/* {SurveyList.map(({ id, title }) => (
         <Survey key={id} survey={{ title }} />
       ))} */}
 
