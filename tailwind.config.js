@@ -1,4 +1,4 @@
-import { fontFamily } from "./src/styles/fontFamily"
+import { fontFamily } from "./src/styles/fontFamily";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,5 +10,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
-
+};
