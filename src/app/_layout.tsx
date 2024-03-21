@@ -7,6 +7,7 @@ import {
   Poppins_500Medium,
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function Layout() {
   const [fontsLoaded] = useFonts({
@@ -18,5 +19,11 @@ export default function Layout() {
   if (!fontsLoaded) {
     return;
   }
-  return fontsLoaded ? <Slot /> : null;
+  return fontsLoaded ? (
+    <GestureHandlerRootView
+      style={{ flex: 1, backgroundColor: "rgb(250 250 250)" }}
+    >
+      <Slot />
+    </GestureHandlerRootView>
+  ) : null;
 }
