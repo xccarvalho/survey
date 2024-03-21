@@ -1,4 +1,4 @@
-import { SurveyList } from "@/components/SurveyList";
+import { SurveysList } from "@/components/SurveysList";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { router } from "expo-router";
@@ -10,13 +10,14 @@ export default function Home() {
   }
 
   return (
-    <View className="bg-neutral-50 h-full">
+    <View className="flex-1">
       <Header variant="header" title="Survey" handlePress={goLoginPage} />
       <View className="px-6">
         <Header title="Active Surveys" subtitle="Your opinion is important!" />
-        <SurveyList />
-        <View className="flex items-center mt-12">
+        <SurveysList />
+        <View className="mt-12 flex items-center">
           <Button
+            variant="contained"
             lgButton
             title="Create an adm profile"
             onPress={goLoginPage}

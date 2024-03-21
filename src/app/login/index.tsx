@@ -15,7 +15,7 @@ export default function Login() {
   }
 
   return (
-    <View className="h-full bg-neutral-50">
+    <View className="flex-1">
       <Header variant="header" title="Login" />
       <BackButton title="Back" />
 
@@ -50,7 +50,7 @@ export default function Login() {
           <Text className="mb-7 self-end text-sm text-gray-700">
             Forget your password?
           </Text>
-          <Button title="Enter" onPress={goToAdmPage} />
+          <Button variant="contained" title="Enter" onPress={goToAdmPage} />
         </SafeAreaView>
       </View>
     </View>

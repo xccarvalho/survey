@@ -1,21 +1,23 @@
-import { router } from "expo-router";
 import { ScrollView, View } from "react-native";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import CollapsibleView from "@/components/CollapsibleView";
-import { SurveyList } from "@/components/SurveyList";
+import { SurveysList } from "@/components/SurveysList";
+import { BackButton } from "@/components/BackButton";
+
+import { router } from "expo-router";
 
 export default function Adm() {
-  function handleBack() {
-    router.navigate("./");
+  function goToCreateSurveyScreen() {
+    router.navigate("../survey-create");
   }
 
   return (
-    <View className="bg-neutral-50 h-full">
+    <View className="flex-1">
       <Header variant="header" title="Adm" />
-      <View className="flex flex-row items-center justify-between mb-4">
-        <Button backButton title="Back" onPress={handleBack} />
-        <Button title="Create Survey" />
+      <View className="mb-4 flex flex-row items-center justify-between pr-6">
+        <BackButton title="Back" />
+        <Button title="Create Survey" onPress={goToCreateSurveyScreen} />
       </View>
       <ScrollView
         showsVerticalScrollIndicator={true}
@@ -23,10 +25,10 @@ export default function Adm() {
         className="px-6"
       >
         <CollapsibleView title="Active Surveys">
-          <SurveyList />
+          <SurveysList />
         </CollapsibleView>
         <CollapsibleView title="Closed Surveys">
-          <SurveyList />
+          <SurveysList />
         </CollapsibleView>
       </ScrollView>
     </View>
