@@ -4,11 +4,12 @@ import { Text, View } from "react-native";
 
 type Props = {
   title?: string;
+  href?: any;
 };
-export function BackButton({ title }: Props) {
+export function BackButton({ title, href }: Props) {
   return (
-    <Link href="/">
-      <View className="flex-row items-center ml-4 mt-2">
+    <Link href={href ? href : "/"}>
+      <View className="ml-4 mt-2 flex-row items-center">
         <MaterialIcons
           name="chevron-left"
           size={26}

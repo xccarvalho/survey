@@ -14,8 +14,8 @@ export function Header({
   handlePress,
 }: Props) {
   return variant === "header" ? (
-    <View className="flex flex-row items-center justify-between pt-14 pb-3 px-6 bg-zinc-100">
-      <Text className="text-green-950 font-bold text-4xl">{title}</Text>
+    <View className="flex flex-row items-center justify-between bg-zinc-100 px-6 pb-3 pt-14">
+      <Text className="font-bold text-4xl text-green-950">{title}</Text>
       <MaterialIcons
         name="person"
         size={34}
@@ -24,9 +24,9 @@ export function Header({
       />
     </View>
   ) : (
-    <View className="py-6 items-center">
-      <Text className="text-green-950 font-bold text-4xl">{title}</Text>
-      <Text className="text-green-950 font-regular text-lg">{subtitle}</Text>
+    <View className="items-center py-6">
+      <Text className="font-bold text-4xl text-green-950">{title}</Text>
+      <Text className="font-regular text-lg text-green-950">{subtitle}</Text>
     </View>
   );
 }

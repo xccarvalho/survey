@@ -19,18 +19,18 @@ export const BottomSheet = forwardRef<Bottom, Props>(
         snapPoints={snapPoints}
         backgroundStyle={{
           borderWidth: 1,
-          borderColor: "border-gray-400",
-          backgroundColor: "bg-gray-700",
+          borderColor: "rgb(244 244 245)",
+          backgroundColor: "rgb(5 46 22)",
         }}
         handleComponent={() => null}
       >
         <View className="gap-4 p-8">
-          <View className="flex-row">
-            <Text>{title}</Text>
+          <View className="flex-row justify-between">
+            <Text className="font-bold text-lg text-zinc-100">{title}</Text>
             <MaterialIcons
               name="close"
               size={24}
-              color={"text-gray-300"}
+              color="rgb(244 244 245)"
               onPress={onClose}
             />
           </View>
