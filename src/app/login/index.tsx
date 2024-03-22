@@ -10,8 +10,11 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function goToAdmPage() {
+  function goToAdm() {
     router.navigate("../adm/");
+  }
+  function goToCreateAccount() {
+    router.navigate("../account-create/");
   }
 
   return (
@@ -27,7 +30,11 @@ export default function Login() {
             subtitle="Please, click to create an account"
           />
           <View className="flex-row justify-center">
-            <Button title="Create an account" onPress={() => {}} />
+            <Button
+              variant="contained"
+              title="Create an account"
+              onPress={goToCreateAccount}
+            />
           </View>
         </View>
         <SafeAreaView className="gap-2 pt-10">
@@ -50,7 +57,7 @@ export default function Login() {
           <Text className="mb-7 self-end text-sm text-gray-700">
             Forget your password?
           </Text>
-          <Button variant="contained" title="Enter" onPress={goToAdmPage} />
+          <Button variant="contained" title="Enter" onPress={goToAdm} />
         </SafeAreaView>
       </View>
     </View>
