@@ -5,13 +5,16 @@ import { router } from "expo-router";
 import { View } from "react-native";
 
 export default function Home() {
-  function goLoginPage() {
+  function goToLogin() {
     router.navigate("./login/");
+  }
+  function goToCreateAccount() {
+    router.navigate("../account-create/");
   }
 
   return (
     <View className="flex-1">
-      <Header variant="header" title="Survey" handlePress={goLoginPage} />
+      <Header variant="header" title="Survey" handlePress={goToLogin} />
       <View className="px-6">
         <Header title="Active Surveys" subtitle="Your opinion is important!" />
         <SurveysList />
@@ -20,7 +23,7 @@ export default function Home() {
             variant="contained"
             lgButton
             title="Create an adm profile"
-            onPress={goLoginPage}
+            onPress={goToCreateAccount}
           />
         </View>
       </View>
