@@ -23,10 +23,11 @@ export function Input({ endIcon = false, handleDelete, ...rest }: Props) {
         placeholderTextColor="#d1d5db"
         className={classNames(
           "h-14 w-full rounded-lg border border-green-950 bg-white p-4 font-regular text-base text-green-950",
+          { relative: endIcon },
         )}
         {...rest}
       />
-      {endIcon && (
+      {endIcon ? (
         <View>
           <ModalConfirm
             textContent={"Would you like to delete it?"}
@@ -40,19 +41,18 @@ export function Input({ endIcon = false, handleDelete, ...rest }: Props) {
           />
           <TouchableOpacity
             activeOpacity={0.7}
-            // onPress={handleDelete}
             onPress={() => setModalVisible(true)}
-            className="absolute right-3"
+            className="absolute -top-3 right-5 "
           >
             <MaterialIcons
               name="delete-forever"
-              size={24}
+              size={26}
               color={"rgb(127 29 29)"}
               className="ml-2"
             />
           </TouchableOpacity>
         </View>
-      )}
+      ) : null}
     </View>
   );
 }

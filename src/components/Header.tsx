@@ -3,7 +3,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 type Props = {
   variant?: "header" | "main";
   title: string;
-  subtitle?: string;
+  subtitle?: any;
   handlePress?: () => void;
 };
 

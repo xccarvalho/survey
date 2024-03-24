@@ -3,18 +3,18 @@ import classNames from "classnames";
 import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 
 type Props = TouchableOpacityProps & {
-  variant?: "text" | "contained" | "outlined";
+  variant?: "text" | "contained" | "outlined" | "delete";
   title: string;
-  lgButton?: boolean;
   iconStart?: any;
   iconEnd?: any;
   bgDark?: boolean;
+  size?: "sm" | "md" | "lg";
 };
 
 export function Button({
   variant = "text",
   title,
-  lgButton = false,
+  size,
   iconStart,
   iconEnd,
   bgDark,
@@ -28,8 +28,12 @@ export function Button({
       className={classNames(
         "flex-row items-center justify-center rounded-lg px-4 py-4",
         {
+          "border border-green-950": variant === "outlined",
+          "border border-white": variant === "outlined" && bgDark,
+          "bg-red-900": variant === "delete",
           "bg-green-950": variant === "contained",
-          "px-7 py-7": lgButton,
+          "px-7 py-7": size === "lg",
+          "px-4 py-2": size === "sm",
         },
       )}
       {...rest}
@@ -44,9 +48,8 @@ export function Button({
       )}
       <Text
         className={classNames("font-bold text-sm uppercase text-green-950", {
-          "text-white": variant === "contained" || bgDark,
-          "border border-white": variant === "outlined" && bgDark,
-          "border border-green-950": variant === "outlined",
+          "text-white":
+            variant === "contained" || variant === "delete" || bgDark,
         })}
       >
         {title}

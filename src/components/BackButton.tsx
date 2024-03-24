@@ -15,7 +15,7 @@ export function BackButton({ title, href }: Props) {
           size={26}
           className="text-green-950"
         />
-        <Text>{title}</Text>
+        <Text className="mb-0.5 text-sm leading-none">{title}</Text>
       </View>
     </Link>
   );

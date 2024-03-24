@@ -36,12 +36,20 @@ const CollapsibleView = ({ title, children }: Props) => {
   return (
     <View>
       <TouchableWithoutFeedback onPress={toggleCollapse}>
-        <View className="mb-2 flex-row items-stretch">
-          <Text className="font-bold text-2xl text-gre950">{title}</Text>
+        <View className="mb-2 flex-row items-center justify-between">
+          <Text className="font-bold text-2xl text-green-950">{title}</Text>
           {collapsed ? (
-            <MaterialIcons name="keyboard-arrow-right" size={24} />
+            <MaterialIcons
+              name="keyboard-arrow-right"
+              size={32}
+              color={"rgb(5, 46, 22)"}
+            />
           ) : (
-            <MaterialIcons name="keyboard-arrow-down" size={24} />
+            <MaterialIcons
+              name="keyboard-arrow-down"
+              size={32}
+              color={"rgb(5, 46, 22)"}
+            />
           )}
         </View>
       </TouchableWithoutFeedback>
