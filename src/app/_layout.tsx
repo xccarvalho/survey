@@ -1,5 +1,5 @@
 import "@/styles/global.css";
-import { Slot } from "expo-router";
+import { Slot, SplashScreen } from "expo-router";
 import {
   useFonts,
   Poppins_100Thin,
@@ -8,6 +8,9 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
   const [fontsLoaded] = useFonts({
@@ -16,14 +19,17 @@ export default function Layout() {
     Poppins_500Medium,
     Poppins_700Bold,
   });
-  if (!fontsLoaded) {
+  if (fontsLoaded) {
+    SplashScreen.hideAsync();
+  } else {
     return;
   }
-  return fontsLoaded ? (
+  return (
     <GestureHandlerRootView
       style={{ flex: 1, backgroundColor: "rgb(250 250 250)" }}
     >
+      <StatusBar style="light" />
       <Slot />
     </GestureHandlerRootView>
-  ) : null;
+  );
 }
