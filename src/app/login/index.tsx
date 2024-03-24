@@ -1,5 +1,5 @@
 import { SafeAreaView, View, Text } from "react-native";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import { Header } from "@/components/Header";
 import { Button } from "@/components/Button";
 import { BackButton } from "../../components/BackButton";
@@ -13,10 +13,13 @@ export default function Login() {
   function goToAdm() {
     router.navigate("../adm/");
   }
-  function goToCreateAccount() {
-    router.navigate("../account-create/");
-  }
-
+  const goToCreateAccount = (
+    <Link href={"/create-account/"}>
+      <Text>
+        Please, click <b>here to create an account</b>
+      </Text>
+    </Link>
+  );
   return (
     <View className="flex-1">
       <Header variant="header" title="Login" />
@@ -27,15 +30,8 @@ export default function Login() {
           <Header
             variant="main"
             title="Isn't an administrator yet?"
-            subtitle="Please, click to create an account"
+            subtitle={goToCreateAccount}
           />
-          <View className="flex-row justify-center">
-            <Button
-              variant="contained"
-              title="Create an account"
-              onPress={goToCreateAccount}
-            />
-          </View>
         </View>
         <SafeAreaView className="gap-2 pt-10">
           <Text className="font-bold text-xl text-green-950">E-mail</Text>
