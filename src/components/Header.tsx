@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { IconButton } from "./IconButton";
 type Props = {
   variant?: "header" | "main";
   title: string;
-  subtitle?: any;
+  subtitle?: string;
   handlePress?: () => void;
 };
 
@@ -16,12 +16,7 @@ export function Header({
   return variant === "header" ? (
     <View className="flex flex-row items-center justify-between bg-zinc-100 px-6 pb-3 pt-14">
       <Text className="font-bold text-4xl text-green-950">{title}</Text>
-      <MaterialIcons
-        name="person"
-        size={34}
-        onPress={handlePress}
-        className="text-green-950"
-      />
+      <IconButton iconName="person" size={34} onPress={handlePress} />
     </View>
   ) : (
     <View className="items-center py-6">

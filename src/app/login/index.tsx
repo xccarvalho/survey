@@ -1,4 +1,4 @@
-import { SafeAreaView, View, Text } from "react-native";
+import { SafeAreaView, View, Text, Alert } from "react-native";
 import { Link, router } from "expo-router";
 import { Header } from "@/components/Header";
 import { Button } from "@/components/Button";
@@ -10,16 +10,35 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function goToAdm() {
+  const handleSignIn = () => {
+    // check for email textInput
+    if (!email.trim()) {
+      Alert.alert("Please enter a email");
+      return;
+    }
+    // check for newPassword textInput
+    if (!password.trim()) {
+      Alert.alert("Please enter a password");
+      return;
+    }
+    // Check successfully
+    console.info("Logged in successfully!");
     router.navigate("../adm/");
-  }
-  const goToCreateAccount = (
+  };
+
+  // function handleSignIn() {
+  //   console.info("Logged in successfully!");
+  //   router.navigate("../adm/");
+  // }
+
+  const handleCreateAccount = (
     <Link href={"/create-account/"}>
       <Text>
         Please, click <b>here to create an account</b>
       </Text>
     </Link>
   );
+
   return (
     <View className="flex-1">
       <Header variant="header" title="Login" />
@@ -27,11 +46,21 @@ export default function Login() {
 
       <View className="flex-1 px-6">
         <View className="border-b border-gray-200 pb-12">
-          <Header
+          {/* <Header
             variant="main"
             title="Isn't an administrator yet?"
-            subtitle={goToCreateAccount}
-          />
+            subtitle={handleCreateAccount}
+          /> */}
+          <View className="items-center py-6">
+            <Text className="font-bold text-4xl text-green-950">
+              Isn't an administrator yet?
+            </Text>
+            <Link href={"/create-account/"}>
+              <Text className="font-regular text-lg text-green-950">
+                Please, click <b>here to create an account</b>
+              </Text>
+            </Link>
+          </View>
         </View>
         <SafeAreaView className="gap-2 pt-10">
           <Text className="font-bold text-xl text-green-950">E-mail</Text>
@@ -53,7 +82,7 @@ export default function Login() {
           <Text className="mb-7 self-end text-sm text-gray-700">
             Forget your password?
           </Text>
-          <Button variant="contained" title="Enter" onPress={goToAdm} />
+          <Button variant="contained" title="Sign in" onPress={handleSignIn} />
         </SafeAreaView>
       </View>
     </View>

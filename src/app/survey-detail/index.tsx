@@ -3,7 +3,14 @@ import { mocks } from "@/utils/mocks";
 import classNames from "classnames";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Alert, FlatList, Pressable, Text, View } from "react-native";
+import {
+  Alert,
+  FlatList,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 
 export default function SurveyDetail() {
   const surveyMock = mocks.survey;
@@ -12,10 +19,13 @@ export default function SurveyDetail() {
   const goToHome = () => {
     router.navigate("/");
   };
+  const handleSubmit = () => {
+    Alert.alert("Thanks for answer!");
+    router.navigate("/");
+  };
 
   return (
-    // <ScrollView contentContainerClassName="p-6">
-    <View className="p-6">
+    <ScrollView contentContainerClassName="p-6">
       <Text className="font-bold text-2xl text-green-950">
         {surveyMock.title}
       </Text>
@@ -33,6 +43,7 @@ export default function SurveyDetail() {
                     {question.question}
                   </Text>
                 )}
+                key={question.id}
                 keyExtractor={(item) => item}
               />
             </View>
@@ -44,14 +55,21 @@ export default function SurveyDetail() {
                     renderItem={() => (
                       <Pressable
                         className={classNames(
-                          "items-center justify-center rounded border border-green-950 py-2  text-green-950",
-                          { "bg-green-950 text-white": isSelected },
+                          "items-center justify-center rounded border border-green-950 py-2",
+                          { "bg-green-950 ": isSelected },
                         )}
                         onPress={() => setIsSelected(!isSelected)}
                       >
-                        {option.option}
+                        <Text
+                          className={classNames("text-green-950", {
+                            "text-white": isSelected,
+                          })}
+                        >
+                          {option.option}
+                        </Text>
                       </Pressable>
                     )}
+                    key={option.id}
                     keyExtractor={(item) => item}
                   />
                 </View>
@@ -66,9 +84,9 @@ export default function SurveyDetail() {
           variant="contained"
           size="sm"
           title="Send"
-          onPress={() => Alert.alert("Thanks for answer!")}
+          onPress={handleSubmit}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 }

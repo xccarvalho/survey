@@ -21,6 +21,7 @@ export function Surveys({ surveys }: Props) {
           None surveys yet!
         </Text>
       )}
+      key={Math.random() * 20}
     />
   );
 }

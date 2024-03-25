@@ -38,7 +38,7 @@ export function Button({
       )}
       {...rest}
     >
-      {iconStart && (
+      {!!iconStart && (
         <MaterialIcons
           name={iconStart}
           size={22}
@@ -54,7 +54,7 @@ export function Button({
       >
         {title}
       </Text>
-      {iconEnd && (
+      {!!iconEnd && (
         <MaterialIcons
           name={iconEnd}
           size={22}
